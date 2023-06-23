@@ -1,5 +1,5 @@
 import './style.css'
-
+import Works from './works';
 import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 import {GLTFLoader} from 'three/examples/jsm/loaders/GLTFLoader'
@@ -9,6 +9,9 @@ const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerH
 const renderer = new THREE.WebGLRenderer({ //to render out the actual graphic
   canvas: document.querySelector('#bg'),
 });
+
+
+
 var light = new THREE.DirectionalLight(0xffffff, 1);
 light.position.set(100, 31, 31);
 var light2 =new THREE.DirectionalLight(0xffffff, 1); 
@@ -25,7 +28,7 @@ loader.load(
   'blackhole.glb',
   function (gltf) {
     blackHole = gltf.scene;
-      
+    blackHole.position.set(0.1,0.2,-45)
     scene.add(blackHole);
     // Tilt the black hole to a specific angle
     var tiltAngle = -Math.PI / 8; // Adjust the angle as desired
@@ -116,7 +119,7 @@ const moon = new THREE.Mesh(
 );
 scene.add(moon);
 
-moon.position.z = 30;
+moon.position.z = -10;
 moon.position.setX(-10);
 
 anni.position.z = -5;
@@ -128,14 +131,14 @@ function moveCamera() {
   moon.rotation.y += 0.075;
   moon.rotation.z += 0.05;
 
-  anni.rotation.y += 0.01;
-  anni.rotation.z += 0.01;
+  // anni.rotation.y += 0.01;
+  // anni.rotation.z += 0.01;
 
-  camera.position.z = t * -0.01;
+  camera.position.z = t * +0.01;
   camera.position.x = t * -0.0002;
   camera.rotation.y = t * -0.0001;
 
-  console.log(camera.position.x,camera.rotation.y,camera.position.z );
+  // console.log(camera.position.x,camera.rotation.y,camera.position.z );
 }
 document.body.onscroll = moveCamera;
 moveCamera();
@@ -146,13 +149,10 @@ function animate() {
   moon.rotation.x += 0.005;
   anni.rotation.x += 0.005;
   // controls.update();
-  blackHole.rotation.y += 0.01;
+  // blackHole.rotation.y += 0.01;
   renderer.render(scene, camera);
 }
 
 animate();
+window.scrollTo(0, document.body.scrollHeight);
 
-window.onload = function() {
-  // Scroll to the bottom of the page
-  window.scrollTo(0, document.body.scrollHeight);
-};
