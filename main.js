@@ -14,19 +14,23 @@ light.position.set(100, 31, 31);
 var light2 =new THREE.DirectionalLight(0xffffff, 1); 
 light2.position.set
 scene.add(light);
-
 renderer.setPixelRatio(window.devicePixelRatio);
 renderer.setSize(window.innerWidth, window.innerHeight);
 // 0.9434 0.9434 47.17
-camera.position.setZ(47.17);
-camera.position.setX(0.9434);
-camera.position.setY(2);
+camera.position.set(0, 0, 100);
 renderer.render(scene, camera);
 var loader = new GLTFLoader();
+let blackHole;
 loader.load(
   'blackhole.glb',
   function (gltf) {
-    scene.add(gltf.scene);
+    blackHole = gltf.scene;
+      
+    scene.add(blackHole);
+    // Tilt the black hole to a specific angle
+    var tiltAngle = -Math.PI / 8; // Adjust the angle as desired
+    blackHole.parent.rotation.z = tiltAngle;
+
   },
   function (xhr) {
     console.log((xhr.loaded / xhr.total * 100) + '% loaded');
@@ -59,34 +63,15 @@ const blackHolePosition = new THREE.Vector3(0, 0, 0); // Update with the actual 
 //   }
 // });
 
-const geometry = new THREE.TorusGeometry(10, 3, 16, 100);  // set of vectors that define the object itself
-const material = new THREE.MeshStandardMaterial({ color: 0xff6347 });
-const toros = new THREE.Mesh(geometry, material);
-scene.add(toros);
+// const geometry = new THREE.TorusGeometry(10, 3, 16, 100);  // set of vectors that define the object itself
+// const material = new THREE.MeshStandardMaterial({ color: 0xff6347 });
+// const toros = new THREE.Mesh(geometry, material);
+// scene.add(toros);
 const pointLight = new THREE.PointLight(0xffffff);
 pointLight.position.set(1,1,1);
 const ambientLight = new THREE.AmbientLight(0xffffff);
 scene.add(pointLight, ambientLight);
-window.addEventListener('load', function() {
-  // Scroll to the bottom of the page
-  window.scrollTo(0, document.body.scrollHeight);
-  const farthestDistance = Math.max(
-    Math.abs(camera.position.x),
-    Math.abs(camera.position.y),
-    Math.abs(camera.position.z)
-  );
 
-  // Set the camera position to the farthest distance
-  camera.position.set(
-    camera.position.x * farthestDistance,
-    camera.position.y * farthestDistance,
-    camera.position.z * farthestDistance
-  );
-  if (performance.navigation.type === 1) {
-    // Append a unique query parameter to the URL
-    window.location.href = window.location.href + '?reload=' + Date.now();
-  }
-});
 // const lightHelper = new THREE.PointLightHelper(pointLight);
 // const gridHelper = new  THREE.GridHelper(200,50);
 // scene.add(lightHelper, gridHelper);
@@ -117,7 +102,7 @@ const anni = new THREE.Mesh(
   })
 );
 
-scene.add(anni)
+// scene.add(anni)
 //mooon
 
 const moonTexture = new THREE.TextureLoader().load('moon.jpg');
@@ -148,7 +133,7 @@ function moveCamera() {
 
   camera.position.z = t * -0.01;
   camera.position.x = t * -0.0002;
-  camera.rotation.y = t * -0.0002;
+  camera.rotation.y = t * -0.0001;
 
   console.log(camera.position.x,camera.rotation.y,camera.position.z );
 }
@@ -156,14 +141,18 @@ document.body.onscroll = moveCamera;
 moveCamera();
 function animate() {
   requestAnimationFrame(animate);
-  toros.rotation.x += 0.01;
-  toros.rotation.y += 0.005;
-  toros.rotation.z += 0.01;
+  
 
   moon.rotation.x += 0.005;
   anni.rotation.x += 0.005;
   // controls.update();
+  blackHole.rotation.y += 0.01;
   renderer.render(scene, camera);
 }
 
 animate();
+
+window.onload = function() {
+  // Scroll to the bottom of the page
+  window.scrollTo(0, document.body.scrollHeight);
+};
