@@ -3,7 +3,9 @@ import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 import {GLTFLoader} from 'three/examples/jsm/loaders/GLTFLoader'
 const scene = new THREE.Scene();
-
+import moonText from './moon.jpg';
+import spaceImage from './space.jpg';
+import moonNormal from './normal.jpg';
 const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000); // fov, aspect ratio, view frustum
 const renderer = new THREE.WebGLRenderer({ //to render out the actual graphic
   canvas: document.querySelector('#bg'),
@@ -24,7 +26,7 @@ renderer.render(scene, camera);
 var loader = new GLTFLoader();
 let blackHole;
 loader.load(
-  'blackhole.glb',
+  './blackhole.glb',
   function (gltf) {
     blackHole = gltf.scene;
     blackHole.position.set(0.1,0.2,-35)
@@ -91,7 +93,7 @@ function addStar() {
 
 Array(5000).fill().forEach(addStar);
 // background
-const spaceTexture = new THREE.TextureLoader().load('space.jpg');
+const spaceTexture = new THREE.TextureLoader().load(spaceImage);
 scene.background = spaceTexture;
 
 //anni
@@ -107,8 +109,8 @@ const anni = new THREE.Mesh(
 // scene.add(anni)
 //mooon
 
-const moonTexture = new THREE.TextureLoader().load('moon.jpg');
-const normalTexture = new THREE.TextureLoader().load('normal.jpg');
+const moonTexture = new THREE.TextureLoader().load(moonText);
+const normalTexture = new THREE.TextureLoader().load(moonNormal);
 const moon = new THREE.Mesh(
   new THREE.SphereGeometry(3, 32, 32),
   new THREE.MeshBasicMaterial({
