@@ -107,7 +107,7 @@ const anni = new THREE.Mesh(
 // scene.add(anni)
 //mooon
 
-const moonTexture = new THREE.TextureLoader().load('./assets/moon.jpg');
+const moonTexture = new THREE.TextureLoader().load('moon.jpg');
 const normalTexture = new THREE.TextureLoader().load('normal.jpg');
 const moon = new THREE.Mesh(
   new THREE.SphereGeometry(3, 32, 32),
