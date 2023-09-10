@@ -1,5 +1,4 @@
 import './style.css'
-import Works from './works';
 import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 import {GLTFLoader} from 'three/examples/jsm/loaders/GLTFLoader'
@@ -28,7 +27,7 @@ loader.load(
   'blackhole.glb',
   function (gltf) {
     blackHole = gltf.scene;
-    blackHole.position.set(0.1,0.2,-45)
+    blackHole.position.set(0.1,0.2,-35)
     scene.add(blackHole);
     // Tilt the black hole to a specific angle
     var tiltAngle = -Math.PI / 8; // Adjust the angle as desired
@@ -45,26 +44,26 @@ loader.load(
 // Assuming you have already set up the Three.js scene and camera
 
 // Position of the black hole
-const blackHolePosition = new THREE.Vector3(0, 0, 0); // Update with the actual position
+const blackHolePosition = new THREE.Vector3(0.1, 0.2, -35); // Update with the actual position
 
 // Set up a scroll event listener
-// window.addEventListener('scroll', function () {
-//   // Get the scroll position
-//   const scrollPosition = window.scrollY;
+window.addEventListener('scroll', function () {
+  // Get the scroll position
+  const scrollPosition = window.scrollY;
 
-//   // Calculate the distance from the black hole
-//   const distance = camera.position.distanceTo(blackHolePosition);
+  // Calculate the distance from the black hole
+  const distance = camera.position.distanceTo(blackHolePosition);
 
-//   // Assuming you want to trigger the redirection when the camera reaches the center of the black hole
-//   // You can adjust the threshold value as per your requirements
-//   const threshold = 1;
+  // Assuming you want to trigger the redirection when the camera reaches the center of the black hole
+  // You can adjust the threshold value as per your requirements
+  const threshold = 1;
 
-//   // Check if the camera is within the threshold distance of the black hole center
-//   if (distance < threshold && scrollPosition > 0) {
-//     // Redirect to the "projects" page
-//     window.location.href = 'project.html'; // Update with the actual URL of your projects page
-//   }
-// });
+  // Check if the camera is within the threshold distance of the black hole center
+  if (distance < threshold && scrollPosition > 0) {
+    // Redirect to the "projects" page
+    window.location.href = 'http://localhost:3000/works'; // Update with the actual URL of your projects page
+  }
+});
 
 // const geometry = new THREE.TorusGeometry(10, 3, 16, 100);  // set of vectors that define the object itself
 // const material = new THREE.MeshStandardMaterial({ color: 0xff6347 });
@@ -120,7 +119,7 @@ const moon = new THREE.Mesh(
 scene.add(moon);
 
 moon.position.z = -10;
-moon.position.setX(-10);
+moon.position.setX(-5);
 
 anni.position.z = -5;
 anni.position.x = 2;
@@ -149,7 +148,7 @@ function animate() {
   moon.rotation.x += 0.005;
   anni.rotation.x += 0.005;
   // controls.update();
-  // blackHole.rotation.y += 0.01;
+  blackHole.rotation.y += 0.01;
   renderer.render(scene, camera);
 }
 
