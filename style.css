@@ -168,25 +168,25 @@ canvas {
   @media only screen and (max-width: 425px) and (min-width:376px){
     
     blockquote {
-      font-size: 30px;
+      font-size: 20px;
       margin-bottom: 300px;
     }
     h1, blockquote p {
-      font-size: 40px;
+      font-size: 20px;
     }
     section {
       font-size: 16px;
       margin-bottom: 300px;
     } 
     header {
-      font-size:30px;
+      font-size:20px;
       margin-bottom: 300px;
     }
     h2 {
-      font-size: 25px
+      font-size: 18px
     }
     h3{
-      font-size:23px
+      font-size:17px
     }
   }
     @media only screen and (max-width: 768px) and (min-width:426px){
