@@ -10,7 +10,7 @@ canvas {
 :root {
   --dark-bg: rgba(15, 15, 15, 0.9);
   --spacing: 350px;
-  --sapcing-mob: 150px;
+  --sapcing-mob: 200px;
 
   font-family: brandon-grotesque, sans-serif;
   font-weight: 400;
@@ -116,7 +116,31 @@ canvas {
     width: 30%;
     z-index: 9999;  
   }
-  @media only screen and (max-width: 767px){
+  @media only screen and (max-width: 320px){
+    
+    blockquote {
+      font-size: 20px;
+      margin-bottom: 130px;
+    }
+    h1, blockquote p {
+      font-size: 20px;
+    }
+    section {
+      font-size: 14px;
+      margin-bottom: 130px;
+    } 
+    header {
+      font-size:20px;
+      margin-bottom: 130px;
+    }
+    h2 {
+      font-size: 16px
+    }
+    h3{
+      font-size:14px
+    }
+  }
+  @media only screen and (max-width: 375px) and (min-width:321px){
     
     blockquote {
       font-size: 20px;
@@ -139,5 +163,53 @@ canvas {
     h3{
       font-size:14px
     }
+  }
 
+  @media only screen and (max-width: 425px) and (min-width:376px){
+    
+    blockquote {
+      font-size: 20px;
+      margin-bottom: 250px;
+    }
+    h1, blockquote p {
+      font-size: 20px;
+    }
+    section {
+      font-size: 14px;
+      margin-bottom: 250px;
+    } 
+    header {
+      font-size:20px;
+      margin-bottom: 250px;
+    }
+    h2 {
+      font-size: 16px
+    }
+    h3{
+      font-size:14px
+    }
+  }
+    @media only screen and (max-width: 768px) and (min-width:426px){
+    
+      blockquote {
+        font-size: 25px;
+        margin-bottom: 250px;
+      }
+      h1, blockquote p {
+        font-size: 25px;
+      }
+      section {
+        font-size: 19px;
+        margin-bottom: 250px;
+      } 
+      header {
+        font-size:25px;
+        margin-bottom: 250px;
+      }
+      h2 {
+        font-size: 20px
+      }
+      h3{
+        font-size:19px
+      }
   }
