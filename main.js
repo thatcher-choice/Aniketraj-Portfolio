@@ -64,7 +64,7 @@ window.addEventListener('scroll', function () {
   // Check if the camera is within the threshold distance of the black hole center
   if (distance < threshold && scrollPosition > 0) {
     // Redirect to the "projects" page
-    window.location.href = 'http://localhost:3000/works'; // Update with the actual URL of your projects page
+    window.location.href = 'https://works-aniketraj-portfolio.vercel.app/'; // Update with the actual URL of your projects page
   }
 });
 
