@@ -30,7 +30,7 @@ loader.load(
   '/blackhole.glb',
   function (gltf) {
     blackHole = gltf.scene;
-    blackHole.position.set(0.1,0.2,-35)
+    blackHole.position.set(0.1,0.2,-34)
     scene.add(blackHole);
     // Tilt the black hole to a specific angle
     var tiltAngle = -Math.PI / 8; // Adjust the angle as desired
@@ -47,7 +47,7 @@ loader.load(
 // Assuming you have already set up the Three.js scene and camera
 
 // Position of the black hole
-const blackHolePosition = new THREE.Vector3(0.1, 0.2, -35); // Update with the actual position
+const blackHolePosition = new THREE.Vector3(0.1, 0.2, -34); // Update with the actual position
 
 // Set up a scroll event listener
 window.addEventListener('scroll', function () {
