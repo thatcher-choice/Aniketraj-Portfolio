@@ -27,7 +27,7 @@ renderer.render(scene, camera);
 var loader = new GLTFLoader();
 let blackHole;
 loader.load(  
-  './blackhole.glb',
+  '/blackhole.glb',
   function (gltf) {
     blackHole = gltf.scene;
     blackHole.position.set(0.1,0.2,-35)
