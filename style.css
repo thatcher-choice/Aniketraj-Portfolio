@@ -165,7 +165,7 @@ canvas {
     }
   }
 
-  /* @media only screen and (max-width: 425px) and (min-width:376px){
+  @media only screen and (max-width: 425px) and (min-width:376px){
     
     blockquote {
       font-size: 20px;
@@ -188,7 +188,7 @@ canvas {
     h3{
       font-size:17px
     }
-  } */
+  }
     @media only screen and (max-width: 768px) and (min-width:426px){
     
       blockquote {
