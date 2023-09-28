@@ -35,7 +35,7 @@ loader.load(
 
   },
   function (xhr) {
-    console.log((xhr.loaded / xhr.total * 100) + '% loaded');
+    // console.log((xhr.loaded / xhr.total * 100) + '% loaded');
   },
   function (error) {
     console.error('Error loading GLTF file:', error);
