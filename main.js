@@ -146,10 +146,12 @@ document.body.onscroll = moveCamera;
 moveCamera();
 function animate() {
   requestAnimationFrame(animate);
+  
+
   moon.rotation.x += 0.005;
   anni.rotation.x += 0.005;
   // controls.update();
-  setTimeout(() =>blackhole ? blackHole.rotation.y += 0.01 : null);
+  setTimeout(() => blackHole.rotation.y += 0.01, 1000)
   renderer.render(scene, camera);
 }
 
