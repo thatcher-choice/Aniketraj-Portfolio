@@ -151,7 +151,9 @@ function animate() {
   moon.rotation.x += 0.005;
   anni.rotation.x += 0.005;
   // controls.update();
-  setTimeout(() => blackHole.rotation.y += 0.01)
+  if(blackHole){
+   blackHole.rotation.y += 0.01;
+  }
   
   renderer.render(scene, camera);
 }
