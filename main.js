@@ -3,10 +3,6 @@ import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 import {GLTFLoader} from 'three/examples/jsm/loaders/GLTFLoader'
 const scene = new THREE.Scene();
-import moonText from './moon.jpg';
-import spaceImage from './space.jpg';
-import moonNormal from './normal.jpg';
-// import blackHoleGlb from './blackhole.glb'
 const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000); // fov, aspect ratio, view frustum
 const renderer = new THREE.WebGLRenderer({ //to render out the actual graphic
   canvas: document.querySelector('#bg'),
