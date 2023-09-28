@@ -95,14 +95,14 @@ const spaceTexture = new THREE.TextureLoader().load('/space.jpg');
 scene.background = spaceTexture;
 
 //anni
-const anniTexture = new THREE.TextureLoader().load('anni.jpg');
+// const anniTexture = new THREE.TextureLoader().load('anni.jpg');
 
-const anni = new THREE.Mesh(
-  new THREE.BoxGeometry(3, 3, 3),
-  new THREE.MeshStandardMaterial({
-    map: anniTexture
-  })
-);
+// const anni = new THREE.Mesh(
+//   new THREE.BoxGeometry(3, 3, 3),
+//   new THREE.MeshStandardMaterial({
+//     map: anniTexture
+//   })
+// );
 
 // scene.add(anni)
 //mooon
@@ -121,8 +121,8 @@ scene.add(moon);
 moon.position.z = -10;
 moon.position.setX(-5);
 
-anni.position.z = -5;
-anni.position.x = 2;
+// anni.position.z = -5;
+// anni.position.x = 2;
 
 function moveCamera() {
   const t = document.body.getBoundingClientRect().top;
@@ -146,9 +146,12 @@ function animate() {
   
 
   moon.rotation.x += 0.005;
-  anni.rotation.x += 0.005;
+  // anni.rotation.x += 0.005;
   // controls.update();
-  setTimeout(() => blackHole.rotation.y += 0.01, 1000)
+  if(blackHole)
+  {
+    blackHole.rotation.y += 0.01
+  }
   renderer.render(scene, camera);
 }
 
