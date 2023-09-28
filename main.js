@@ -37,6 +37,9 @@ loader.load(
     blackHole.parent.rotation.z = tiltAngle;
 
   },
+  function (xhr) {
+    console.log((xhr.loaded / xhr.total * 100) + '% loaded');
+  },
   function (error) {
     console.error('Error loading GLTF file:', error);
   }
@@ -148,13 +151,9 @@ function animate() {
   moon.rotation.x += 0.005;
   anni.rotation.x += 0.005;
   // controls.update();
-  if(blackHole){
-   blackHole.rotation.y += 0.01;
-  }
-  
+  blackHole.rotation.y += 0.01  
   renderer.render(scene, camera);
 }
-
-animate();
+setTimeout(() => animate(), 1000);
 window.scrollTo(0, document.body.scrollHeight);
 
