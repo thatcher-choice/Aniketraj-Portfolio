@@ -37,9 +37,6 @@ loader.load(
     blackHole.parent.rotation.z = tiltAngle;
 
   },
-  function (xhr) {
-    console.log((xhr.loaded / xhr.total * 100) + '% loaded');
-  },
   function (error) {
     console.error('Error loading GLTF file:', error);
   }
